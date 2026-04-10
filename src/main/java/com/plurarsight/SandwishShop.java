@@ -10,18 +10,40 @@ public class SandwishShop {
         double largSandwishSize = 8.95;
 
         System.out.println("Please, enter sandwish size");
-        System.out.println("A - Regular ($5.45)");
-        System.out.println("B - Large ($8.95)");
+        System.out.println("1 - Regular ($5.45)");
+        System.out.println("2 - Large ($8.95)");
 
-        String choice = scanner.nextLine();
+        int choice = scanner.nextInt();
 
-        if (choice.equalsIgnoreCase("A")) {
-            System.out.println("You selected Regular sandwich. Price: $" + regSandwishSize);
-        } else if (choice.equalsIgnoreCase("B")) {
-            System.out.println("You selected Large sandwich. Price: $" + largSandwishSize);
+        double price = 0;
+
+        if (choice == 1) {
+            price = regSandwishSize;
+        } else if (choice == 2) {
+            price = largSandwishSize;
         } else {
             System.out.println("Invalid choice.");
+            return;
         }
+
+
+
+        System.out.println("Please, enter your age");
+        int userAge = scanner.nextInt();
+
+        if (userAge <= 17) {
+            price = price - (price * 0.10);
+        }else if (userAge>=65){
+            price = price - (price * 0.20);
+
+
+        }
+
+        System.out.println("Final price: $" + price);
+        scanner.close();
+
+
+
     }
 }
 
@@ -34,7 +56,7 @@ public class SandwishShop {
 
 
 
-    
+
 
 
 
